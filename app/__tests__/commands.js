@@ -17,11 +17,14 @@ test('Bad command pings user', () => {
 test('nick command updates config', () => {
     const mockMember = {
         id: '222',
-        nickname: 'bob'
+        user: {
+            username: 'bob'
+        },
+        setNickname: jest.fn()
     }
    
     const mockMessage = {
-        author: mockMember,
+        member: mockMember,
         content: '-nick test',
         reply: jest.fn()
     }
@@ -32,7 +35,9 @@ test('nick command updates config', () => {
 
     const expectedName = 'test'
     const expectedMessage = 'name updated to test'
+    const expectedNickname = '(Level 1) test'
 
     expect(playerConfig.getConfig(mockMember).name).toBe(expectedName)
     expect(mockMessage.reply).toHaveBeenCalledWith(expectedMessage)
+    expect(mockMember.setNickname).toHaveBeenCalledWith(expectedNickname)
 })

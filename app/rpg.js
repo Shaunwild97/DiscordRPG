@@ -7,9 +7,10 @@ function registerPlayer(member) {
 
 function updatePlayerNickname(member) {
     const config = playerConfig.getConfig(member)
-    member.setNickname(`(Level ${config.level}) ${member.user.username}`)
+    member.setNickname(`(Level ${config.level}) ${config.name}`)
 }
 
 module.exports = {
-    registerPlayer
+    registerPlayer,
+    updatePlayerNickname
 }

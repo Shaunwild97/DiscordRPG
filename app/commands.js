@@ -1,9 +1,11 @@
 const globals = require('./globals')
 const playerConfig = require('./player_config')
+const rpg = require('./rpg')
 
 const commandHandler = {
     nick(message, name) {
-        playerConfig.getConfig(message.author).name = name
+        playerConfig.getConfig(message.member).name = name
+        rpg.updatePlayerNickname(message.member)
         message.reply(`name updated to ${name}`)
     }
 }

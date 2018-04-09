@@ -17,7 +17,7 @@ function getConfig(member) {
 
 function createInitialConfig(member) {
     return {
-        name: member.nickname,
+        name: member.user.username,
         level: 1
     }
 }
