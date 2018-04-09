@@ -26,6 +26,8 @@ function handleCommand(message) {
     } else {
         message.reply('Command not found')
     }
+
+    message.delete()
 }
 
 module.exports = {
