@@ -6,7 +6,7 @@ const commandHandler = {
     nick(message, name) {
         playerConfig.getConfig(message.member).name = name
         rpg.updatePlayerNickname(message.member)
-        message.reply(`name updated to ${name}`)
+        sendAutodeletingReply(message, `name updated to ${name}`)
     }
 }
 
@@ -22,11 +22,18 @@ function handleCommand(message) {
     const commandExec = commandHandler[command]
 
     if (commandExec) {
-        commandExec.apply(this, args)
+        commandExec(...args)
     } else {
         message.reply('Command not found')
     }
 
+    message.delete()
+}
+
+function sendAutodeletingReply(message, content) {
+    message.reply(content)
+        .then(m => m.delete(10000))
+        .catch(console.error)
     message.delete()
 }
 

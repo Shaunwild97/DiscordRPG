@@ -1,3 +1,4 @@
 module.exports = {
-    BOT_PREFIX: '-'
+    BOT_PREFIX: '-',
+    MAX_INSTANCE_SIZE: 100
 }

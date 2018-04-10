@@ -1,3 +1,5 @@
+'use_strict'
+
 const {Client} = require('discord.js')
 const os = require('os')
 const clientHandler = require('./app/client')

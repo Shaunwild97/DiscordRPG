@@ -1,3 +1,5 @@
+const world = require('./game/world')
+
 const players = {
 }
 
@@ -8,7 +10,7 @@ function registerPlayer(member) {
 function getConfig(member) {
     const result = players[member.id]
 
-    if(result) {
+    if (result) {
         return result
     }
 
