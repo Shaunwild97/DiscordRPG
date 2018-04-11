@@ -6,6 +6,8 @@ async function movePlayerToInstance(member, location) {
     channel.overwritePermissions(member.id, {
         'VIEW_CHANNEL': true
     })
+
+    return channel
 }
 
 async function findOrCreateInstance(member, location) {

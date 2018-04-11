@@ -1,5 +1,5 @@
 const instances = require('../instances')
-const locations = require('../game/world')
+const world = require('../game/world')
 
 const { Collection } = require('discord.js')
 

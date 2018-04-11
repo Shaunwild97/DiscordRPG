@@ -1,4 +1,4 @@
-# Discord RPG Bot
+# Discord RPG Bot (discontinued)
 
 A bot to manage the Discord RPG server
 

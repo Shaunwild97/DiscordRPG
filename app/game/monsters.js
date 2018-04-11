@@ -10,3 +10,5 @@ const monsters = {
         damage: 2
     }
 }
+
+module.exports = monsters

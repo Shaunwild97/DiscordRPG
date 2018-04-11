@@ -1,12 +1,26 @@
 const globals = require('./globals')
 const playerConfig = require('./player_config')
 const rpg = require('./rpg')
+const instances = require('./instances')
+const world = require('./game/world')
 
 const commandHandler = {
     nick(message, name) {
         playerConfig.getConfig(message.member).name = name
         rpg.updatePlayerNickname(message.member)
         sendAutodeletingReply(message, `name updated to ${name}`)
+    },
+
+    look(message) {
+        sendAutodeletingReply(message, world.getLookTextForLocation(playerConfig.getConfig(message.member).location))
+    },
+
+    travel(message, direction) {
+        const currentLocation = playerConfig.getConfig(message.member).location
+        console.log('current location: ' + currentLocation)
+        const newLocation = world.getLocationFacing(currentLocation , direction)
+        console.log('new Location: ' + newLocation)
+        rpg.updatePlayerLocation(message.member, newLocation)
     }
 }
 
@@ -24,16 +38,15 @@ function handleCommand(message) {
     if (commandExec) {
         commandExec(...args)
     } else {
-        message.reply('Command not found')
+        sendAutodeletingReply(message, 'Command not found')
     }
-
-    message.delete()
 }
 
 function sendAutodeletingReply(message, content) {
     message.reply(content)
         .then(m => m.delete(10000))
         .catch(console.error)
+
     message.delete()
 }
 

@@ -34,11 +34,7 @@ function generateMockMessage(content) {
 }
 
 test('Bad command pings user', () => {
-    const mockMessage = {
-        content: '-badcommand hello',
-        reply: jest.fn(),
-        delete: jest.fn()
-    }
+    const {mockMessage} = generateMockMessage('-badcommand test')
 
     client.handleMessage(mockMessage)
 
@@ -72,20 +68,7 @@ test('command is deleted after processed for valid command', () => {
 })
 
 test('command is deleted after processed for invalid command', () => {
-    const mockMember = {
-        id: '222',
-        user: {
-            username: 'bob'
-        },
-        setNickname: jest.fn()
-    }
-
-    const mockMessage = {
-        member: mockMember,
-        content: '-badcommand',
-        reply: jest.fn(),
-        delete: jest.fn()
-    }
+    const {mockMessage} = generateMockMessage('-badcommand test')
 
     client.handleMessage(mockMessage)
 

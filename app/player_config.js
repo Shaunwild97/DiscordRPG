@@ -20,6 +20,7 @@ function getConfig(member) {
 function createInitialConfig(member) {
     return {
         name: member.user.username,
+        location: world.locations.nuahswood,
         level: 1
     }
 }
