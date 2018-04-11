@@ -11,3 +11,7 @@ A bot to manage the Discord RPG server
 ### Library
 
 <a href="https://discord.js.org/#/">Discord.js</a>
+
+### License
+
+<a href="https://www.gnu.org/copyleft/gpl.html">GPL</a>
