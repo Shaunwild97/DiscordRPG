@@ -4,7 +4,7 @@ A bot to manage the Discord RPG server
 
 ## Server
 
-<a href="https://discord.gg/eJNHDma">Join Here</a>
+<s><a href="#">Join Here</a></s>
 
 ## About
 
